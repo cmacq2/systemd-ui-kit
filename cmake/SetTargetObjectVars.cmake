@@ -1,15 +1,11 @@
 #
 # It would have been nice had cmake permitted target_link_libraries() to work for OBJECT type libraries.
-# That would have implied some manner of consistency and thoughtfull design, so of course that is not the case.
-# 
-# Arguably I may not entirely understand cmake and or be otherwise unfit to pass judgement on its merits as a build tool.
-# Meanwhile, I can only assume build tool people are deeply passionate about Vogon poetry.
-
 #
 # This macro acts as some kind of poor-man's subsitute/analog for target_link_libraries() to be used in conjunction with a OBJECT library target.
 # It sets up compiler flags using 'cmake generator expressions' that look like $<> and which you really don't want to know about.
 # It takes three arguments: the name of the object library target, the mode and a list of libraries that components of the object library may require.
 # Example: 
+# 
 # set(my_obj_lib_SRCS "some_dbus_interface.cpp some_implementation_detail.cpp something_to_unit_test.cpp")
 # add_library(my_obj_collection ${my_obj_lib_SRCS})
 # set_target_object_vars(my_obj_collection PRIVATE Qt5::Core Qt5::DBus)
